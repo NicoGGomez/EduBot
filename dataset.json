@@ -1,0 +1,130 @@
+[
+  {
+    "materia": "Ciencias Naturales",
+    "tema": "Los animales",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Qué son los mamíferos?",
+    "respuesta": "Los mamíferos son animales que tienen pelo y alimentan a sus crías con leche.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Naturales",
+    "tema": "Las plantas",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Qué necesitan las plantas para vivir?",
+    "respuesta": "Las plantas necesitan sol, agua, aire y tierra para crecer.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Naturales",
+    "tema": "El cuerpo humano",
+    "nivel": "Primaria - 2° grado",
+    "pregunta": "¿Qué usamos para respirar?",
+    "respuesta": "Usamos los pulmones para respirar aire.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Naturales",
+    "tema": "El agua",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿En qué estados se puede encontrar el agua?",
+    "respuesta": "El agua puede estar en estado sólido, líquido o gaseoso.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Matemática",
+    "tema": "Sumas y restas",
+    "nivel": "Primaria - 2° grado",
+    "pregunta": "¿Cuánto es 7 + 5?",
+    "respuesta": "7 más 5 es igual a 12.",
+    "tipo": "práctico"
+  },
+  {
+    "materia": "Matemática",
+    "tema": "Sumas y restas",
+    "nivel": "Primaria - 2° grado",
+    "pregunta": "¿Cuánto es 15 - 8?",
+    "respuesta": "15 menos 8 es igual a 7.",
+    "tipo": "práctico"
+  },
+  {
+    "materia": "Matemática",
+    "tema": "Multiplicación",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Cuánto es 4 x 3?",
+    "respuesta": "4 por 3 es 12.",
+    "tipo": "práctico"
+  },
+  {
+    "materia": "Matemática",
+    "tema": "División",
+    "nivel": "Primaria - 4° grado",
+    "pregunta": "¿Cuánto es 12 ÷ 3?",
+    "respuesta": "12 dividido 3 es 4.",
+    "tipo": "práctico"
+  },
+  {
+    "materia": "Ciencias Sociales",
+    "tema": "Los continentes",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Cuántos continentes hay en la Tierra?",
+    "respuesta": "Hay cinco continentes: América, Europa, Asia, África y Oceanía.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Sociales",
+    "tema": "La familia",
+    "nivel": "Primaria - 1° grado",
+    "pregunta": "¿Qué es una familia?",
+    "respuesta": "Una familia es un grupo de personas que se quieren y se ayudan entre sí.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Sociales",
+    "tema": "Los símbolos patrios",
+    "nivel": "Primaria - 2° grado",
+    "pregunta": "¿Qué colores tiene la bandera argentina?",
+    "respuesta": "La bandera argentina tiene los colores celeste y blanco, con un sol en el centro.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Lengua",
+    "tema": "Las vocales",
+    "nivel": "Primaria - 1° grado",
+    "pregunta": "¿Cuántas vocales tiene el abecedario?",
+    "respuesta": "Tiene cinco vocales: A, E, I, O y U.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Lengua",
+    "tema": "Sustantivos",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Qué es un sustantivo?",
+    "respuesta": "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Lengua",
+    "tema": "Oraciones",
+    "nivel": "Primaria - 4° grado",
+    "pregunta": "¿Qué debe tener una oración para estar completa?",
+    "respuesta": "Debe tener sujeto y predicado.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Ciencias Naturales",
+    "tema": "El Sol y la Luna",
+    "nivel": "Primaria - 2° grado",
+    "pregunta": "¿Qué nos da el Sol?",
+    "respuesta": "El Sol nos da luz y calor.",
+    "tipo": "teórico"
+  },
+  {
+    "materia": "Matemática",
+    "tema": "Figuras geométricas",
+    "nivel": "Primaria - 3° grado",
+    "pregunta": "¿Cuántos lados tiene un triángulo?",
+    "respuesta": "Un triángulo tiene tres lados.",
+    "tipo": "teórico"
+  }
+]
