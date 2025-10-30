@@ -10,7 +10,7 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
 print("Cargando el modelo de analisis de sentimiento...")
 
-GROQ_API_KEY = 'GROQ_API_KEY'
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
@@ -19,6 +19,8 @@ DATASET_PATH = 'dataset.json'
 analizador_de_sentimiento = pipeline("sentiment-analysis",
                                      model = "pysentimiento/robertuito-sentiment-analysis")
 print ("Modelo cargado con exito.....")
+print(TELEGRAM_BOT_TOKEN)
+
 
 #instanciar el objeto === crear el bot
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
@@ -36,20 +38,46 @@ def cargar_dataset():
       
 dataset = cargar_dataset()
 
-def analizador_sentimiento(frase):
-    resultados = analizador_de_sentimiento(frase)[0]
-    sentimiento= resultados["label"]
-    if sentimiento == "POS":
-        respuesta = buscar_en_dataset(frase, dataset)
-    elif sentimiento == "NEG":
-        respuesta = "estas bien?"  # negativo
-    elif sentimiento == "NEU":
-        respuesta = buscar_en_dataset(frase, dataset)
-    else:
-        respuesta = "❓"  # desconocido
+# def analizador_sentimiento(frase):
+#     resultados = analizador_de_sentimiento(frase)[0]
+#     sentimiento = resultados[0]["label"]
+#     if sentimiento == "POS":
+#         respuesta = buscar_en_dataset(frase, dataset)
+#     elif sentimiento == "NEG":
+#         respuesta = "estas bien?"  # negativo
+#     elif sentimiento == "NEU":
+#         respuesta = buscar_en_dataset(frase, dataset)
+#     else:
+#         respuesta = "❓"  # desconocido
 
-    return f"{respuesta}"
-     
+#     return f"{respuesta}"
+
+def analizador_sentimiento(frase):
+    try:
+        resultados = analizador_de_sentimiento(frase)
+        if not resultados or not isinstance(resultados, list):
+            return "⚠️ No se pudo analizar el sentimiento."
+
+        sentimiento = resultados[0]["label"]
+
+        if sentimiento == "POS":
+            respuesta = buscar_en_dataset(frase, dataset) or "😊 Me alegra escuchar eso."
+        elif sentimiento == "NEG":
+            respuesta = "😟 ¿Estás bien? Si querés puedo ayudarte con algo."
+        elif sentimiento == "NEU":
+            respuesta = buscar_en_dataset(frase, dataset) or "Ok, lo entiendo."
+        else:
+            respuesta = "❓ No pude determinar el sentimiento."
+
+        return respuesta
+
+    except Exception as e:
+        print(f"Error en analizador_sentimiento: {e}")
+        return "⚠️ Ocurrió un error al analizar el sentimiento."
+
+
+
+
 def buscar_en_dataset(pregunta, dataset):
 
 	# Normaliza la pregunta (quita espacios y pasa a minúsculas)
@@ -73,7 +101,7 @@ def cmd_welcome(message):
 def responder(message):
     pregunta = message.text
     resultado = analizador_sentimiento(pregunta)
-    bot.reply_to(pregunta, resultado)
+    bot.reply_to(message, resultado)
 if __name__=="__main__":
     print("Bot ejecutado!")
     bot.infinity_polling()
