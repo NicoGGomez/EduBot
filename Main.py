@@ -38,19 +38,9 @@ def cargar_dataset():
       
 dataset = cargar_dataset()
 
-# def analizador_sentimiento(frase):
-#     resultados = analizador_de_sentimiento(frase)[0]
-#     sentimiento = resultados[0]["label"]
-#     if sentimiento == "POS":
-#         respuesta = buscar_en_dataset(frase, dataset)
-#     elif sentimiento == "NEG":
-#         respuesta = "estas bien?"  # negativo
-#     elif sentimiento == "NEU":
-#         respuesta = buscar_en_dataset(frase, dataset)
-#     else:
-#         respuesta = "❓"  # desconocido
-
-#     return f"{respuesta}"
+def sacar_signos (pregunta):
+    pregunta_sin_signo = pregunta.replace("?", "").replace("¿", "")
+    return pregunta_sin_signo
 
 def analizador_sentimiento(frase):
     try:
@@ -75,21 +65,20 @@ def analizador_sentimiento(frase):
         print(f"Error en analizador_sentimiento: {e}")
         return "⚠️ Ocurrió un error al analizar el sentimiento."
 
-
-
-
 def buscar_en_dataset(pregunta, dataset):
+    # Normaliza la pregunta (quita espacios y pasa a minúsculas)
+    pregunta = pregunta.strip().lower()
+    pregunta_sin_signo = sacar_signos(pregunta)
 
-	# Normaliza la pregunta (quita espacios y pasa a minúsculas)
-	pregunta = pregunta.strip().lower()
-	# Recorre cada elemento del dataset
-	for item in dataset:
-		# Compara la pregunta del usuario con la del dataset (normalizada)
-		if item['pregunta'].strip().lower() == pregunta:
-			# Si hay coincidencia exacta, retorna la respuesta
-			return item['respuesta']
-	# Si no encuentra coincidencia, retorna None
-	return None
+    # Recorre cada elemento del dataset
+    for item in dataset:
+        # Compara la pregunta del usuario con la del dataset (normalizada)
+        if sacar_signos(item['pregunta'].strip().lower()) == pregunta_sin_signo:
+            # Si hay coincidencia exacta, retorna la respuesta
+            return item['respuesta']
+
+    # Si no encuentra coincidencia, retorna None
+    return None
 
 @bot.message_handler(commands=["start","help","pepito"])
 def cmd_welcome(message):
