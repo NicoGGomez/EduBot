@@ -3,6 +3,10 @@ from transformers import pipeline
 import os
 import json
 import time
+from groq import Groq
+import base64
+from PIL import Image
+import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,6 +16,8 @@ print("Cargando el modelo de analisis de sentimiento...")
 
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
+cliente_groq = Groq(api_key=GROQ_API_KEY)
+
 GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 DATASET_PATH = 'dataset.json'
@@ -19,8 +25,6 @@ DATASET_PATH = 'dataset.json'
 analizador_de_sentimiento = pipeline("sentiment-analysis",
                                      model = "pysentimiento/robertuito-sentiment-analysis")
 print ("Modelo cargado con exito.....")
-print(TELEGRAM_BOT_TOKEN)
-
 
 #instanciar el objeto === crear el bot
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
@@ -41,6 +45,83 @@ dataset = cargar_dataset()
 def sacar_signos (pregunta):
     pregunta_sin_signo = pregunta.replace("?", "").replace("¿", "")
     return pregunta_sin_signo
+
+def sumar(pregunta):
+    numeros = [int(n) for n in re.findall(r'\d+', pregunta)]
+    for n in numeros :
+         total += n
+
+    print(total)
+    return f"el resultado es {total}"
+
+def imagen_a_base64(ruta_o_bytes_imagen):
+    """Convierte una imagen a base64 para enviarla a Groq"""
+    try:
+        if isinstance(ruta_o_bytes_imagen, bytes):
+            return base64.b64encode(ruta_o_bytes_imagen).decode('utf-8')
+        else:
+            with open(ruta_o_bytes_imagen, "rb") as archivo_imagen:
+                return base64.b64encode(archivo_imagen.read()).decode('utf-8')
+    except Exception as e:
+        print(f"Error al convertir imagen a base64: {e}")
+        return None
+    
+# Manejador para imágenes
+@bot.message_handler(content_types=['photo'])
+def manejar_foto(mensaje):
+    """Procesa las imágenes enviadas por el usuario"""
+    try:
+        bot.reply_to(mensaje, "📸 He recibido tu imagen. Analizándola... ⏳")
+        foto = mensaje.photo[-1]
+        info_archivo = bot.get_file(foto.file_id)
+        archivo_descargado = bot.download_file(info_archivo.file_path)
+        imagen_base64 = imagen_a_base64(archivo_descargado)
+
+        if not imagen_base64:
+            bot.reply_to(mensaje, "❌ Error al procesar la imagen. Intenta de nuevo.")
+            return
+
+        descripcion = describir_imagen_con_groq(imagen_base64)
+
+        if descripcion:
+            respuesta = f"🤖 *Descripción de la imagen:*\n\n{descripcion}"
+            bot.reply_to(mensaje, respuesta, parse_mode='Markdown')
+        else:
+            bot.reply_to(mensaje, "❌ No pude analizar la imagen. Por favor, intenta con otra imagen.")
+    except Exception as e:
+        print(f"Error al procesar la imagen: {e}")
+        bot.reply_to(mensaje, "❌ Ocurrió un error al procesar tu imagen. Intenta de nuevo.")
+
+# Función para describir imagen con Groq
+def describir_imagen_con_groq(imagen_base64):
+    """Envía la imagen a Groq y obtiene la descripción"""
+    try:
+        completado_chat = cliente_groq.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Por favor, describe esta imagen de manera detallada y clara en español. Incluye todos los elementos importantes que veas, colores, objetos, personas, acciones, emociones, y cualquier detalle relevante que puedas observar."
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{imagen_base64}"
+                            }
+                        }
+                    ]
+                }
+            ],
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            temperature=0.7,
+            max_tokens=1000
+        )
+        return completado_chat.choices[0].message.content
+    except Exception as e:
+        print(f"Error al describir imagen con Groq: {e}")
+        return None
 
 def analizador_sentimiento(frase):
     try:
@@ -69,6 +150,9 @@ def buscar_en_dataset(pregunta, dataset):
     # Normaliza la pregunta (quita espacios y pasa a minúsculas)
     pregunta = pregunta.strip().lower()
     pregunta_sin_signo = sacar_signos(pregunta)
+    if "cuanto es" in pregunta and "mas" in pregunta: 
+         if "+" in pregunta : 
+              return sumar(pregunta)
 
     # Recorre cada elemento del dataset
     for item in dataset:
@@ -95,91 +179,3 @@ if __name__=="__main__":
     print("Bot ejecutado!")
     bot.infinity_polling()
 
-# dataset preguntas 
-
-
-
-# dataset edubot
-
-[
-  {
-    "pregunta": "¿Qué es EduBot?",
-    "respuesta": "EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades."
-  },
-  {
-    "pregunta": "¿Para qué sirve EduBot?",
-    "respuesta": "Sirve para que los niños aprendan pensando por sí mismos. En lugar de darles siempre la respuesta, EduBot los guía con pistas y juegos para que la descubran."
-  },
-  {
-    "pregunta": "¿Qué materias enseña EduBot?",
-    "respuesta": "EduBot puede ayudar en materias como matemáticas, ciencias, historia y cultura general, adaptando las preguntas según el nivel del niño."
-  },
-  {
-    "pregunta": "¿Cómo funciona EduBot?",
-    "respuesta": "EduBot hace una pregunta, escucha la respuesta del niño y, según lo que responda, puede dar una pista, corregir con amabilidad o contar un dato curioso."
-  },
-  {
-    "pregunta": "¿Qué tecnologías usa EduBot?",
-    "respuesta": "Está programado en Python y utiliza inteligencia artificial con librerías como transformers, NLTK, SpeechRecognition y OpenCV para entender texto, voz e imágenes."
-  },
-  {
-    "pregunta": "¿EduBot puede hablar?",
-    "respuesta": "Sí, puede convertir voz en texto y responder con mensajes hablados usando procesamiento de audio. Así, los niños pueden interactuar sin escribir."
-  },
-  {
-    "pregunta": "¿EduBot puede ver imágenes?",
-    "respuesta": "Sí, puede analizar imágenes para reconocer objetos o dibujos que el niño le envíe y comentar algo educativo sobre ellos."
-  },
-  {
-    "pregunta": "¿Qué hace cuando un niño se equivoca?",
-    "respuesta": "EduBot nunca reta. Da una pista, explica con paciencia y motiva al niño con mensajes como '¡Casi lo logras!' o 'Intentémoslo otra vez juntos 🧩'."
-  },
-  {
-    "pregunta": "¿EduBot da recompensas?",
-    "respuesta": "Sí, ofrece stickers o medallas virtuales por participar, aprender algo nuevo o responder correctamente. ¡Así el aprendizaje se vuelve un juego!"
-  },
-  {
-    "pregunta": "¿Qué hace EduBot cuando el niño acierta?",
-    "respuesta": "¡Lo felicita! Con frases como '¡Excelente trabajo! 🎉' o '¡Sos un genio!' y a veces cuenta un dato curioso sobre la respuesta."
-  },
-  {
-    "pregunta": "¿Qué lenguaje usa EduBot?",
-    "respuesta": "Habla en español claro y simple, adaptado a niños de entre 6 y 12 años, con frases cortas y muchos emojis amigables."
-  },
-  {
-    "pregunta": "¿EduBot puede entender diferentes formas de responder?",
-    "respuesta": "Sí, gracias al procesamiento de lenguaje natural (NLP), EduBot entiende sinónimos o respuestas parecidas, incluso si el niño no escribe perfecto."
-  },
-  {
-    "pregunta": "¿Por qué EduBot es diferente de otros bots?",
-    "respuesta": "Porque no solo responde, sino que enseña a pensar. Motiva al niño a razonar, hacer preguntas y descubrir respuestas por sí mismo."
-  },
-  {
-    "pregunta": "¿Quién creó a EduBot?",
-    "respuesta": "Fue creado por un equipo del programa Samsung Innovation Campus como parte del Capstone Project de IA en Python."
-  },
-  {
-    "pregunta": "¿EduBot tiene sentimientos?",
-    "respuesta": "No tiene sentimientos como los humanos, pero puede detectar emociones en los textos para responder con empatía o ánimo."
-  },
-  {
-    "pregunta": "¿Qué pasa si el niño está triste o frustrado?",
-    "respuesta": "EduBot lo nota y responde con mensajes de apoyo como 'No te preocupes, todos aprendemos con práctica 😊'."
-  },
-  {
-    "pregunta": "¿EduBot se puede usar en la escuela?",
-    "respuesta": "Sí, puede integrarse como una herramienta educativa en el aula o usarse desde casa como apoyo al estudio."
-  },
-  {
-    "pregunta": "¿Puede usarse en otros idiomas?",
-    "respuesta": "Por ahora funciona en español, pero el objetivo es escalarlo a inglés y portugués en futuras versiones."
-  },
-  {
-    "pregunta": "¿Dónde vive EduBot?",
-    "respuesta": "Vive en la nube 🌩️, donde procesa la información y responde a los niños desde cualquier lugar del mundo."
-  },
-  {
-    "pregunta": "¿Cuál es el lema de EduBot?",
-    "respuesta": "Aprender jugando, pensar descubriendo 🤖✨."
-  }
-]
