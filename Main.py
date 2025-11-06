@@ -11,6 +11,7 @@ from typing import Optional
 from dotenv import load_dotenv
 
 from analizador_audio import AnalizadorAudio
+from analizador_imagenes import AnalizadorImagen
 
 load_dotenv()
 
@@ -32,7 +33,8 @@ print ("Modelo cargado con exito.....")
 #instanciar el objeto === crear el bot
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
-analizar_audio = AnalizadorAudio.__init__(cliente_groq, bot, DATASET_PATH)
+analizar_audio = AnalizadorAudio(cliente_groq, bot, DATASET_PATH)
+analizar_img = AnalizadorImagen(cliente_groq, bot, DATASET_PATH)
 
 # Función para cargar el dataset desde el archivo JSON
 def cargar_dataset():
@@ -80,13 +82,13 @@ def manejar_foto(mensaje):
         foto = mensaje.photo[-1]
         info_archivo = bot.get_file(foto.file_id)
         archivo_descargado = bot.download_file(info_archivo.file_path)
-        imagen_base64 = imagen_a_base64(archivo_descargado)
+        imagen_base64 = analizar_img.imagen_a_base64(archivo_descargado)
 
         if not imagen_base64:
             bot.reply_to(mensaje, "❌ Error al procesar la imagen. Intenta de nuevo.")
             return
 
-        descripcion = describir_imagen_con_groq(imagen_base64)
+        descripcion = analizar_img.describir_imagen_con_groq(imagen_base64)
 
         if descripcion:
             respuesta = f"🤖 *Descripción de la imagen:*\n\n{descripcion}"
@@ -97,63 +99,63 @@ def manejar_foto(mensaje):
         print(f"Error al procesar la imagen: {e}")
         bot.reply_to(mensaje, "❌ Ocurrió un error al procesar tu imagen. Intenta de nuevo.")
 
-def get_groq_response(user_message: str) -> Optional[str]:
-    try: 
-        system_prompt = f"""Eres el asistente virtual de Edubot. Tu tarea es responder preguntas basándote en la siguiente información de la empresa.
+# def get_groq_response(user_message: str) -> Optional[str]:
+#     try: 
+#         system_prompt = f"""Eres el asistente virtual de Edubot. Tu tarea es responder preguntas basándote en la siguiente información de la empresa.
 
-Datos de la empresa:
-{json.dumps(dataset)}
+# Datos de la empresa:
+# {json.dumps(dataset)}
  
-lista completa que aparece en el dataset para ver ejemplos de páginas."""
-        chat_completion = cliente_groq.chat.completions.create(
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt
-                },
-                {
-                    "role": "user",
-                    "content": user_message
-                }
-            ],
-            model = "llama-3.3-70b-versatile",
-            temperature = 0.3,
-            max_tokens = 500
-        )
+# lista completa que aparece en el dataset para ver ejemplos de páginas."""
+#         chat_completion = cliente_groq.chat.completions.create(
+#             messages=[
+#                 {
+#                     "role": "system",
+#                     "content": system_prompt
+#                 },
+#                 {
+#                     "role": "user",
+#                     "content": user_message
+#                 }
+#             ],
+#             model = "llama-3.3-70b-versatile",
+#             temperature = 0.3,
+#             max_tokens = 500
+#         )
         
-        return chat_completion.choices[0].message.content.strip()
+#         return chat_completion.choices[0].message.content.strip()
 
 
-    except Exception as e:
-        print(f"Error al obtener la respuesta: {str(e)}")
-        return None
+#     except Exception as e:
+#         print(f"Error al obtener la respuesta: {str(e)}")
+#         return None
 
-def transcribe_voice_with_groq(message: telebot.types.Message) -> Optional[str]:
-    try:
-        file_info = bot.get_file(message.voice.file_id)
-        downloaded_file = bot.download_file(file_info.file_path)
-        temp_file = "temp_voice.ogg"
+# def transcribe_voice_with_groq(message: telebot.types.Message) -> Optional[str]:
+#     try:
+#         file_info = bot.get_file(message.voice.file_id)
+#         downloaded_file = bot.download_file(file_info.file_path)
+#         temp_file = "temp_voice.ogg"
 
-        #guardar el archivo de forma temporal
-        with open(temp_file, "wb") as f:
-            f.write(downloaded_file)
-        with open(temp_file, "rb") as file:
-            transcription = cliente_groq.audio.transcriptions.create(
-                file = (temp_file, file.read()),
-                model = "whisper-large-v3-turbo",
-                prompt = "Especificar contexto o pronunciacion",
-                response_format = "json",
-                language = "es",
-                temperature = 1
-            )
-        os.remove(temp_file)
+#         #guardar el archivo de forma temporal
+#         with open(temp_file, "wb") as f:
+#             f.write(downloaded_file)
+#         with open(temp_file, "rb") as file:
+#             transcription = cliente_groq.audio.transcriptions.create(
+#                 file = (temp_file, file.read()),
+#                 model = "whisper-large-v3-turbo",
+#                 prompt = "Especificar contexto o pronunciacion",
+#                 response_format = "json",
+#                 language = "es",
+#                 temperature = 1
+#             )
+#         os.remove(temp_file)
 
         
-        return transcription.text
+#         return transcription.text
 
-    except Exception as e:
-        print(f"Error al transcribir; {str(e)}")
-        return None
+#     except Exception as e:
+#         print(f"Error al transcribir; {str(e)}")
+#         return None
 
 # Función para describir imagen con Groq
 def describir_imagen_con_groq(imagen_base64):
@@ -243,7 +245,7 @@ def handle_voice_message(message: telebot.types.Message):
     bot.send_chat_action(message.chat.id, 'typing')
 
     # Transcribir el mensaje de voz usando Groq
-    transcription = transcribe_voice_with_groq(message)
+    transcription = analizar_audio.transcribe_voice_with_groq(message)
 
     if not transcription:
         bot.reply_to(message, "❌ Lo siento, no pude transcribir el audio. Por favor, intenta de nuevo.")

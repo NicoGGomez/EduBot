@@ -11,14 +11,15 @@ class AnalizadorAudio():
     def __init__(self, cliente_groq, bot, DATASET_PATH):
         self.cliente_groq = cliente_groq
         self.bot = bot
-        self.datasetListo = cargarDataset.cargar_dataset(DATASET_PATH)
+        self.procesarDataset = cargarDataset(DATASET_PATH) 
+        self.datasetListo = self.procesarDataset.cargar_dataset()
 
     def get_groq_response(self, user_message: str) -> Optional[str]:
         try: 
             system_prompt = f"""Eres el asistente virtual de Edubot. Tu tarea es responder preguntas basándote en la siguiente información de la empresa.
 
     Datos de la empresa:
-    {json.dumps(self.datasetlisto)}
+    {json.dumps(self.datasetListo)}
     
     lista completa que aparece en el dataset para ver ejemplos de páginas."""
             chat_completion = self.cliente_groq.chat.completions.create(
