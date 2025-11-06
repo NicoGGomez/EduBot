@@ -10,6 +10,8 @@ import re
 from typing import Optional
 from dotenv import load_dotenv
 
+from analizador_audio import AnalizadorAudio
+
 load_dotenv()
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -29,6 +31,8 @@ print ("Modelo cargado con exito.....")
 
 #instanciar el objeto === crear el bot
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
+
+analizar_audio = AnalizadorAudio.__init__(cliente_groq, bot, DATASET_PATH)
 
 # Función para cargar el dataset desde el archivo JSON
 def cargar_dataset():
@@ -246,7 +250,8 @@ def handle_voice_message(message: telebot.types.Message):
         return
     
     # Obtener respuesta de Groq usando la transcripción como input
-    response = get_groq_response(transcription)
+    # response = get_groq_response(transcription)
+    response = analizar_audio.get_groq_response(transcription)
 
     if response:
         bot.reply_to(message, response)
