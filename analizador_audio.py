@@ -4,14 +4,14 @@ import telebot
 import os
 import json
 
-from cargar_dataset import cargarDataset 
+from manejo_dataset import manejoDataset 
 
 class AnalizadorAudio():
 
     def __init__(self, cliente_groq, bot, DATASET_PATH):
         self.cliente_groq = cliente_groq
         self.bot = bot
-        self.procesarDataset = cargarDataset(DATASET_PATH) 
+        self.procesarDataset = manejoDataset(DATASET_PATH) 
         self.datasetListo = self.procesarDataset.cargar_dataset()
 
     def get_groq_response(self, user_message: str) -> Optional[str]:

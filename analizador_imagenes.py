@@ -4,17 +4,17 @@ from groq import Groq
 import json
 import telebot
 
-from cargar_dataset import cargarDataset 
+from manejo_dataset import manejoDataset 
 
 class AnalizadorImagen:
      
     def __init__(self, cliente_groq, bot, DATASET_PATH):
         self.cliente_groq = cliente_groq
         self.bot = bot
-        self.procesarDataset = cargarDataset(DATASET_PATH) 
+        self.procesarDataset = manejoDataset(DATASET_PATH) 
         self.datasetListo = self.procesarDataset.cargar_dataset()
 
-    def imagen_a_base64(ruta_o_bytes_imagen):
+    def imagen_a_base64(self, ruta_o_bytes_imagen):
         """Convierte una imagen a base64 para enviarla a Groq"""
         try:
             if isinstance(ruta_o_bytes_imagen, bytes):
