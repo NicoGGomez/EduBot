@@ -3,6 +3,9 @@ import os
 import time
 from groq import Groq
 from dotenv import load_dotenv
+import json
+
+# datatime
 
 from analizador_audio import AnalizadorAudio
 from analizador_imagenes import AnalizadorImagen
@@ -54,7 +57,7 @@ def manejar_foto(mensaje):
         print(f"Error al procesar la imagen: {e}")
         bot.reply_to(mensaje, "❌ Ocurrió un error al procesar tu imagen. Intenta de nuevo.")
 
-@bot.message_handler(commands=["start","help","pepito"])
+@bot.message_handler(commands=["start","help"])
 def cmd_welcome(message):
     bot.send_chat_action(message.chat.id,"typing")
     time.sleep(1)
@@ -92,4 +95,5 @@ def responder(message):
 if __name__=="__main__":
     print("Bot ejecutado!")
     bot.infinity_polling()
+
 
