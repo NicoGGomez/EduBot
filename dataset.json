@@ -1,210 +1,89 @@
-[ 
-  {
-    "materia": "Ciencias Naturales",
-    "tema": "Los animales",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Qué son los mamíferos?",
-    "respuesta": "Los mamíferos son animales que tienen pelo y alimentan a sus crías con leche.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Naturales",
-    "tema": "Las plantas",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Qué necesitan las plantas para vivir?",
-    "respuesta": "Las plantas necesitan sol, agua, aire y tierra para crecer.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Naturales",
-    "tema": "El cuerpo humano",
-    "nivel": "Primaria - 2° grado",
-    "pregunta": "¿Qué usamos para respirar?",
-    "respuesta": "Usamos los pulmones para respirar aire.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Naturales",
-    "tema": "El agua",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿En qué estados se puede encontrar el agua?",
-    "respuesta": "El agua puede estar en estado sólido, líquido o gaseoso.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Matemática",
-    "tema": "Sumas y restas",
-    "nivel": "Primaria - 2° grado",
-    "pregunta": "¿Cuánto es 7 + 5?",
-    "respuesta": "7 más 5 es igual a 12.",
-    "tipo": "práctico"
-  },
-  {
-    "materia": "Matemática",
-    "tema": "Sumas y restas",
-    "nivel": "Primaria - 2° grado",
-    "pregunta": "¿Cuánto es 15 - 8?",
-    "respuesta": "15 menos 8 es igual a 7.",
-    "tipo": "práctico"
-  },
-  {
-    "materia": "Matemática",
-    "tema": "Multiplicación",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Cuánto es 4 x 3?",
-    "respuesta": "4 por 3 es 12.",
-    "tipo": "práctico"
-  },
-  {
-    "materia": "Matemática",
-    "tema": "División",
-    "nivel": "Primaria - 4° grado",
-    "pregunta": "¿Cuánto es 12 ÷ 3?",
-    "respuesta": "12 dividido 3 es 4.",
-    "tipo": "práctico"
-  },
-  {
-    "materia": "Ciencias Sociales",
-    "tema": "Los continentes",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Cuántos continentes hay en la Tierra?",
-    "respuesta": "Hay cinco continentes: América, Europa, Asia, África y Oceanía.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Sociales",
-    "tema": "La familia",
-    "nivel": "Primaria - 1° grado",
-    "pregunta": "¿Qué es una familia?",
-    "respuesta": "Una familia es un grupo de personas que se quieren y se ayudan entre sí.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Sociales",
-    "tema": "Los símbolos patrios",
-    "nivel": "Primaria - 2° grado",
-    "pregunta": "¿Qué colores tiene la bandera argentina?",
-    "respuesta": "La bandera argentina tiene los colores celeste y blanco, con un sol en el centro.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Lengua",
-    "tema": "Las vocales",
-    "nivel": "Primaria - 1° grado",
-    "pregunta": "¿Cuántas vocales tiene el abecedario?",
-    "respuesta": "Tiene cinco vocales: A, E, I, O y U.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Lengua",
-    "tema": "Sustantivos",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Qué es un sustantivo?",
-    "respuesta": "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Lengua",
-    "tema": "Oraciones",
-    "nivel": "Primaria - 4° grado",
-    "pregunta": "¿Qué debe tener una oración para estar completa?",
-    "respuesta": "Debe tener sujeto y predicado.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Ciencias Naturales",
-    "tema": "El Sol y la Luna",
-    "nivel": "Primaria - 2° grado",
-    "pregunta": "¿Qué nos da el Sol?",
-    "respuesta": "El Sol nos da luz y calor.",
-    "tipo": "teórico"
-  },
-  {
-    "materia": "Matemática",
-    "tema": "Figuras geométricas",
-    "nivel": "Primaria - 3° grado",
-    "pregunta": "¿Cuántos lados tiene un triángulo?",
-    "respuesta": "Un triángulo tiene tres lados.",
-    "tipo": "teórico"
-  },
-  {
-    "pregunta": "¿Qué es EduBot?",
-    "respuesta": "EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades."
-  },
-  {
-    "pregunta": "¿Para qué sirve EduBot?",
-    "respuesta": "Sirve para que los niños aprendan pensando por sí mismos. En lugar de darles siempre la respuesta, EduBot los guía con pistas y juegos para que la descubran."
-  },
-  {
-    "pregunta": "¿Qué materias enseña EduBot?",
-    "respuesta": "EduBot puede ayudar en materias como matemáticas, ciencias, historia y cultura general, adaptando las preguntas según el nivel del niño."
-  },
-  {
-    "pregunta": "¿Cómo funciona EduBot?",
-    "respuesta": "EduBot hace una pregunta, escucha la respuesta del niño y, según lo que responda, puede dar una pista, corregir con amabilidad o contar un dato curioso."
-  },
-  {
-    "pregunta": "¿Qué tecnologías usa EduBot?",
-    "respuesta": "Está programado en Python y utiliza inteligencia artificial con librerías como transformers, NLTK, SpeechRecognition y OpenCV para entender texto, voz e imágenes."
-  },
-  {
-    "pregunta": "¿EduBot puede hablar?",
-    "respuesta": "Sí, puede convertir voz en texto y responder con mensajes hablados usando procesamiento de audio. Así, los niños pueden interactuar sin escribir."
-  },
-  {
-    "pregunta": "¿EduBot puede ver imágenes?",
-    "respuesta": "Sí, puede analizar imágenes para reconocer objetos o dibujos que el niño le envíe y comentar algo educativo sobre ellos."
-  },
-  {
-    "pregunta": "¿Qué hace cuando un niño se equivoca?",
-    "respuesta": "EduBot nunca reta. Da una pista, explica con paciencia y motiva al niño con mensajes como '¡Casi lo logras!' o 'Intentémoslo otra vez juntos 🧩'."
-  },
-  {
-    "pregunta": "¿EduBot da recompensas?",
-    "respuesta": "Sí, ofrece stickers o medallas virtuales por participar, aprender algo nuevo o responder correctamente. ¡Así el aprendizaje se vuelve un juego!"
-  },
-  {
-    "pregunta": "¿Qué hace EduBot cuando el niño acierta?",
-    "respuesta": "¡Lo felicita! Con frases como '¡Excelente trabajo! 🎉' o '¡Sos un genio!' y a veces cuenta un dato curioso sobre la respuesta."
-  },
-  {
-    "pregunta": "¿Qué lenguaje usa EduBot?",
-    "respuesta": "Habla en español claro y simple, adaptado a niños de entre 6 y 12 años, con frases cortas y muchos emojis amigables."
-  },
-  {
-    "pregunta": "¿EduBot puede entender diferentes formas de responder?",
-    "respuesta": "Sí, gracias al procesamiento de lenguaje natural (NLP), EduBot entiende sinónimos o respuestas parecidas, incluso si el niño no escribe perfecto."
-  },
-  {
-    "pregunta": "¿Por qué EduBot es diferente de otros bots?",
-    "respuesta": "Porque no solo responde, sino que enseña a pensar. Motiva al niño a razonar, hacer preguntas y descubrir respuestas por sí mismo."
-  },
-  {
-    "pregunta": "¿Quién creó a EduBot?",
-    "respuesta": "Fue creado por un equipo del programa Samsung Innovation Campus como parte del Capstone Project de IA en Python."
-  },
-  {
-    "pregunta": "¿EduBot tiene sentimientos?",
-    "respuesta": "No tiene sentimientos como los humanos, pero puede detectar emociones en los textos para responder con empatía o ánimo."
-  },
-  {
-    "pregunta": "¿Qué pasa si el niño está triste o frustrado?",
-    "respuesta": "EduBot lo nota y responde con mensajes de apoyo como 'No te preocupes, todos aprendemos con práctica 😊'."
-  },
-  {
-    "pregunta": "¿EduBot se puede usar en la escuela?",
-    "respuesta": "Sí, puede integrarse como una herramienta educativa en el aula o usarse desde casa como apoyo al estudio."
-  },
-  {
-    "pregunta": "¿Puede usarse en otros idiomas?",
-    "respuesta": "Por ahora funciona en español, pero el objetivo es escalarlo a inglés y portugués en futuras versiones."
-  },
-  {
-    "pregunta": "¿Dónde vive EduBot?",
-    "respuesta": "Vive en la nube 🌩️, donde procesa la información y responde a los niños desde cualquier lugar del mundo."
-  },
-  {
-    "pregunta": "¿Cuál es el lema de EduBot?",
-    "respuesta": "Aprender jugando, pensar descubriendo 🤖✨."
-  }
+
+[
+  {"pregunta": "¿Qué son los mamíferos?", "respuesta": "Los mamíferos son animales que tienen pelo y alimentan a sus crías con leche."},
+  {"pregunta": "¿Qué necesitan las plantas para vivir?", "respuesta": "Las plantas necesitan sol, agua, aire y tierra para crecer."},
+  {"pregunta": "¿Qué usamos para respirar?", "respuesta": "Usamos los pulmones para respirar aire."},
+  {"pregunta": "¿En qué estados se puede encontrar el agua?", "respuesta": "El agua puede estar en estado sólido, líquido o gaseoso."},
+  {"pregunta": "¿Cuánto es 7 + 5?", "respuesta": "7 más 5 es igual a 12."},
+  {"pregunta": "¿Cuánto es 15 - 8?", "respuesta": "15 menos 8 es igual a 7."},
+  {"pregunta": "¿Cuánto es 4 x 3?", "respuesta": "4 por 3 es 12."},
+  {"pregunta": "¿Cuánto es 12 ÷ 3?", "respuesta": "12 dividido 3 es 4."},
+  {"pregunta": "¿Cuántos continentes hay en la Tierra?", "respuesta": "Hay cinco continentes: América, Europa, Asia, África y Oceanía."},
+  {"pregunta": "¿Qué es una familia?", "respuesta": "Una familia es un grupo de personas que se quieren y se ayudan entre sí."},
+  {"pregunta": "¿Qué colores tiene la bandera argentina?", "respuesta": "La bandera argentina tiene los colores celeste y blanco, con un sol en el centro."},
+  {"pregunta": "¿Cuántas vocales tiene el abecedario?", "respuesta": "Tiene cinco vocales: A, E, I, O y U."},
+  {"pregunta": "¿Qué es un sustantivo?", "respuesta": "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas."},
+  {"pregunta": "¿Qué debe tener una oración para estar completa?", "respuesta": "Debe tener sujeto y predicado."},
+  {"pregunta": "¿Qué nos da el Sol?", "respuesta": "El Sol nos da luz y calor."},
+  {"pregunta": "¿Cuántos lados tiene un triángulo?", "respuesta": "Un triángulo tiene tres lados."},
+  {"pregunta": "¿Qué es EduBot?", "respuesta": "EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades."},
+  {"pregunta": "¿Para qué sirve EduBot?", "respuesta": "Sirve para que los niños aprendan pensando por sí mismos. En lugar de darles siempre la respuesta, EduBot los guía con pistas y juegos para que la descubran."},
+  {"pregunta": "¿Qué materias enseña EduBot?", "respuesta": "EduBot puede ayudar en materias como matemáticas, ciencias, historia y cultura general, adaptando las preguntas según el nivel del niño."},
+  {"pregunta": "¿Cómo funciona EduBot?", "respuesta": "EduBot hace una pregunta, escucha la respuesta del niño y, según lo que responda, puede dar una pista, corregir con amabilidad o contar un dato curioso."},
+  {"pregunta": "¿Qué tecnologías usa EduBot?", "respuesta": "Está programado en Python y utiliza inteligencia artificial con librerías como transformers, NLTK, SpeechRecognition y OpenCV para entender texto, voz e imágenes."},
+  {"pregunta": "¿EduBot puede hablar?", "respuesta": "Sí, puede convertir voz en texto y responder con mensajes hablados usando procesamiento de audio. Así, los niños pueden interactuar sin escribir."},
+  {"pregunta": "¿EduBot puede ver imágenes?", "respuesta": "Sí, puede analizar imágenes para reconocer objetos o dibujos que el niño le envíe y comentar algo educativo sobre ellos."},
+  {"pregunta": "¿Qué hace cuando un niño se equivoca?", "respuesta": "EduBot nunca reta. Da una pista, explica con paciencia y motiva al niño con mensajes como '¡Casi lo logras!' o 'Intentémoslo otra vez juntos 🧩'."},
+  {"pregunta": "¿EduBot da recompensas?", "respuesta": "Sí, ofrece stickers o medallas virtuales por participar, aprender algo nuevo o responder correctamente. ¡Así el aprendizaje se vuelve un juego!"},
+  {"pregunta": "¿Qué hace EduBot cuando el niño acierta?", "respuesta": "¡Lo felicita! Con frases como '¡Excelente trabajo! 🎉' o '¡Sos un genio!' y a veces cuenta un dato curioso sobre la respuesta."},
+  {"pregunta": "¿Qué lenguaje usa EduBot?", "respuesta": "Habla en español claro y simple, adaptado a niños de entre 6 y 12 años, con frases cortas y muchos emojis amigables."},
+  {"pregunta": "¿EduBot puede entender diferentes formas de responder?", "respuesta": "Sí, gracias al procesamiento de lenguaje natural (NLP), EduBot entiende sinónimos o respuestas parecidas, incluso si el niño no escribe perfecto."},
+  {"pregunta": "¿Por qué EduBot es diferente de otros bots?", "respuesta": "Porque no solo responde, sino que enseña a pensar. Motiva al niño a razonar, hacer preguntas y descubrir respuestas por sí mismo."},
+  {"pregunta": "¿Quién creó a EduBot?", "respuesta": "Fue creado por un equipo del programa Samsung Innovation Campus como parte del Capstone Project de IA en Python."},
+  {"pregunta": "¿EduBot tiene sentimientos?", "respuesta": "No tiene sentimientos como los humanos, pero puede detectar emociones en los textos para responder con empatía o ánimo."},
+  {"pregunta": "¿Qué pasa si el niño está triste o frustrado?", "respuesta": "EduBot lo nota y responde con mensajes de apoyo como 'No te preocupes, todos aprendemos con práctica 😊'."},
+  {"pregunta": "¿EduBot se puede usar en la escuela?", "respuesta": "Sí, puede integrarse como una herramienta educativa en el aula o usarse desde casa como apoyo al estudio."},
+  {"pregunta": "¿Puede usarse en otros idiomas?", "respuesta": "Por ahora funciona en español, pero el objetivo es escalarlo a inglés y portugués en futuras versiones."},
+  {"pregunta": "¿Dónde vive EduBot?", "respuesta": "Vive en la nube 🌩️, donde procesa la información y responde a los niños desde cualquier lugar del mundo."},
+  {"pregunta": "¿Cuál es el lema de EduBot?", "respuesta": "Aprender jugando, pensar descubriendo 🤖✨."},
+  {"pregunta": "¿Qué planeta está más cerca del Sol?", "respuesta": "El planeta más cercano al Sol es Mercurio."},
+  {"pregunta": "¿Qué planeta conocemos como el planeta azul?", "respuesta": "La Tierra, porque está cubierta en su mayoría por agua."},
+  {"pregunta": "¿Qué animales ponen huevos?", "respuesta": "Los ovíparos, como las aves, reptiles y algunos peces."},
+  {"pregunta": "¿Qué parte del cuerpo usamos para oír?", "respuesta": "Usamos los oídos para oír."},
+  {"pregunta": "¿Qué órgano bombea la sangre en el cuerpo?", "respuesta": "El corazón bombea la sangre por todo el cuerpo."},
+  {"pregunta": "¿Qué gas respiramos del aire?", "respuesta": "Respiramos oxígeno, que es esencial para vivir."},
+  {"pregunta": "¿Qué parte de la planta crece bajo tierra?", "respuesta": "Las raíces crecen bajo tierra y absorben agua y minerales."},
+  {"pregunta": "¿Cómo se llama el satélite natural de la Tierra?", "respuesta": "Se llama la Luna."},
+  {"pregunta": "¿Qué es el reciclaje?", "respuesta": "Es reutilizar materiales para cuidar el medio ambiente."},
+  {"pregunta": "¿Qué color se obtiene al mezclar azul y amarillo?", "respuesta": "Se obtiene el color verde."},
+  {"pregunta": "¿Cuánto es 8 x 7?", "respuesta": "8 por 7 es 56."},
+  {"pregunta": "¿Cuánto es 36 ÷ 6?", "respuesta": "36 dividido 6 es 6."},
+  {"pregunta": "¿Cuál es el resultado de 9 + 11?", "respuesta": "El resultado es 20."},
+  {"pregunta": "¿Cuánto es 50 - 23?", "respuesta": "50 menos 23 es 27."},
+  {"pregunta": "¿Qué forma tiene una pelota?", "respuesta": "Tiene forma de esfera."},
+  {"pregunta": "¿Cuántos lados tiene un cuadrado?", "respuesta": "Tiene cuatro lados iguales."},
+  {"pregunta": "¿Qué número viene después del 99?", "respuesta": "Después del 99 viene el 100."},
+  {"pregunta": "¿Qué es una docena?", "respuesta": "Una docena son doce unidades."},
+  {"pregunta": "¿Qué significa el signo más (+)?", "respuesta": "Significa que se van a sumar los números."},
+  {"pregunta": "¿Qué palabra usamos para nombrar una acción?", "respuesta": "Usamos un verbo."},
+  {"pregunta": "¿Qué son los adjetivos?", "respuesta": "Son palabras que describen cómo es una persona, animal o cosa."},
+  {"pregunta": "¿Qué signo lleva una pregunta?", "respuesta": "Lleva signos de interrogación (¿ ?)."},
+  {"pregunta": "¿Qué es un cuento?", "respuesta": "Es una narración corta con personajes y una historia."},
+  {"pregunta": "¿Qué se escribe con mayúscula?", "respuesta": "Se escriben con mayúscula los nombres propios y al inicio de una oración."},
+  {"pregunta": "¿Qué es un poema?", "respuesta": "Es un texto que expresa sentimientos con ritmo y rima."},
+  {"pregunta": "¿Qué son los sinónimos?", "respuesta": "Palabras que tienen significados parecidos."},
+  {"pregunta": "¿Qué son los antónimos?", "respuesta": "Palabras que significan lo contrario."},
+  {"pregunta": "¿Quién fue el primer presidente argentino?", "respuesta": "Bernardino Rivadavia."},
+  {"pregunta": "¿Qué ocurrió el 25 de mayo de 1810?", "respuesta": "Se formó el Primer Gobierno Patrio en Buenos Aires."},
+  {"pregunta": "¿Qué colores tiene la escarapela argentina?", "respuesta": "Celeste y blanco."},
+  {"pregunta": "¿Quién fue José de San Martín?", "respuesta": "Fue el Libertador de Argentina, Chile y Perú."},
+  {"pregunta": "¿Qué se celebra el 9 de julio en Argentina?", "respuesta": "El Día de la Independencia."},
+  {"pregunta": "¿Qué es una provincia?", "respuesta": "Es una parte del territorio de un país con su propio gobierno."},
+  {"pregunta": "¿Cómo se llama la capital de Argentina?", "respuesta": "Buenos Aires."},
+  {"pregunta": "¿Qué es la democracia?", "respuesta": "Es un sistema donde las personas eligen a sus gobernantes votando."},
+  {"pregunta": "¿Qué hace un intendente?", "respuesta": "Gobierna una ciudad o municipio."},
+  {"pregunta": "¿Qué es la tecnología?", "respuesta": "Es el uso de conocimientos y herramientas para resolver problemas."},
+  {"pregunta": "¿Qué es una computadora?", "respuesta": "Es una máquina que procesa información y realiza tareas."},
+  {"pregunta": "¿Qué es Internet?", "respuesta": "Es una red mundial que conecta computadoras y personas."},
+  {"pregunta": "¿Qué debemos hacer para cuidar el agua?", "respuesta": "Cerrar la canilla y no desperdiciarla."},
+  {"pregunta": "¿Qué energía usa el Sol?", "respuesta": "Usa energía solar, que puede convertirse en electricidad o calor."},
+  {"pregunta": "¿Por qué es importante plantar árboles?", "respuesta": "Porque dan oxígeno, sombra y ayudan al medio ambiente."},
+  {"pregunta": "¿Qué es la contaminación?", "respuesta": "Es ensuciar el aire, el agua o la tierra con desechos o sustancias dañinas."},
+  {"pregunta": "¿Qué materiales se pueden reciclar?", "respuesta": "Papel, plástico, vidrio y metal."},
+  {"pregunta": "¿Qué es una pintura?", "respuesta": "Es una obra de arte hecha con colores sobre una superficie."},
+  {"pregunta": "¿Qué es un instrumento musical?", "respuesta": "Es un objeto que produce sonidos para hacer música."},
+  {"pregunta": "¿Qué colores forman el violeta?", "respuesta": "El azul y el rojo."},
+  {"pregunta": "¿Qué es una nota musical?", "respuesta": "Es un símbolo que representa un sonido en la música."},
+  {"pregunta": "¿Por qué es importante respetar a los demás?", "respuesta": "Porque todos merecemos ser tratados con amabilidad y justicia."},
+  {"pregunta": "¿Qué significa trabajar en equipo?", "respuesta": "Significa colaborar con otros para lograr un objetivo común."}
 ]

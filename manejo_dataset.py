@@ -1,5 +1,6 @@
 import json
 import re
+import unicodedata
 
 class manejoDataset: 
     def __init__(self, dataset):
@@ -15,10 +16,24 @@ class manejoDataset:
             # Si hay error (por ejemplo, el archivo no existe), retorna una lista vacía
             return []
         
-    def sacar_signos (self, pregunta):
-        texto_limpio = re.sub(r'([aeiouáéíóúrsy])\1{2,}', r'\1', pregunta, flags=re.I)
-        pregunta_sin_signo = texto_limpio.replace("?", "").replace("¿", "")
-        return pregunta_sin_signo
+    # def sacar_signos (self, pregunta):
+    #     texto_limpio = re.sub(r'([aeiouáéíóúrsy])\1{2,}', r'\1', pregunta, flags=re.I)
+    #     pregunta_sin_signo = texto_limpio.replace("?", "").replace("¿", "")
+    #     return pregunta_sin_signo
+
+    def sacar_signos(self, pregunta):
+        # Normaliza el texto para eliminar acentos
+        texto_normalizado = unicodedata.normalize('NFD', pregunta)
+        texto_sin_acentos = texto_normalizado.encode('ascii', 'ignore').decode('utf-8')
+        
+        # Elimina signos de interrogación
+        texto_sin_signo = texto_sin_acentos.replace("?", "").replace("¿", "")
+        
+        # Reduce letras repetidas (ej: holaaa -> hola)
+        texto_limpio = re.sub(r'([aeiouyrs])\1{2,}', r'\1', texto_sin_signo, flags=re.I)
+        
+        return texto_limpio
+
 
     def sumar(self, pregunta):
         numeros = [int(n) for n in re.findall(r'\d+', pregunta)]

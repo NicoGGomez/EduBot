@@ -57,11 +57,17 @@ def manejar_foto(mensaje):
         print(f"Error al procesar la imagen: {e}")
         bot.reply_to(mensaje, "❌ Ocurrió un error al procesar tu imagen. Intenta de nuevo.")
 
-@bot.message_handler(commands=["start","help"])
+@bot.message_handler(commands=["Comenzar"])
 def cmd_welcome(message):
     bot.send_chat_action(message.chat.id,"typing")
     time.sleep(1)
-    bot.reply_to(message,"Bienvenido, en que puedo ayudarte? Tengo mucha informacion sobre temas de escolar.")
+    bot.reply_to(message,"Bienvenido, en que puedo ayudarte? Tengo mucha informacion sobre temas de escuela primaria.")
+
+@bot.message_handler(commands=["Ayuda"])
+def cmd_welcome(message):
+    bot.send_chat_action(message.chat.id,"typing")
+    time.sleep(1)
+    bot.reply_to(message,"Para comenzar a usar el bot, debes usar el comand: '/Comenzar'.")
 
 @bot.message_handler(content_types=['voice'])
 def handle_voice_message(message: telebot.types.Message):
