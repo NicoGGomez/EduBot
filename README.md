@@ -53,12 +53,12 @@ Pregunta	Respuesta esperada
 
 ### 🧠 Tecnologías utilizadas
 
-Python 3.10+
-TeleBot (pyTelegramBotAPI)
-Groq API
-Hugging Face Transformers
-dotenv
-JSON
+- Python 3.10+
+- TeleBot (pyTelegramBotAPI)
+- Groq API
+- Transformers
+- dotenv
+- JSON
 
 ### 🚀 Objetivo Educativo
 
@@ -68,6 +68,6 @@ El propósito de EduBot es acercar la inteligencia artificial al aprendizaje inf
 
 Desarrollado por: 
 
-### Nicolás Gómez - anelecarg@gmail.com
-### Agustina Fennema - agusfennema@gmail.com
-### Iñaki Boixados - ilboixa2@gmail.com
+**Nicolás Gómez - anelecarg@gmail.com**
+**Agustina Fennema - agusfennema@gmail.com**
+**Iñaki Boixados - ilboixa2@gmail.com**
