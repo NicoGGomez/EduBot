@@ -64,7 +64,7 @@ def cmd_welcome(message):
     bot.reply_to(message,"Bienvenido, en que puedo ayudarte? Tengo mucha informacion sobre temas de escuela primaria.")
 
 @bot.message_handler(commands=["Ayuda"])
-def cmd_welcome(message):
+def cmd_help(message):
     bot.send_chat_action(message.chat.id,"typing")
     time.sleep(1)
     bot.reply_to(message,"Para comenzar a usar el bot, debes usar el comand: '/Comenzar'.")

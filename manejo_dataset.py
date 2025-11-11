@@ -1,6 +1,7 @@
 import json
 import re
 import unicodedata
+import re
 
 class manejoDataset: 
     def __init__(self, dataset):
@@ -15,11 +16,6 @@ class manejoDataset:
         except Exception:
             # Si hay error (por ejemplo, el archivo no existe), retorna una lista vacía
             return []
-        
-    # def sacar_signos (self, pregunta):
-    #     texto_limpio = re.sub(r'([aeiouáéíóúrsy])\1{2,}', r'\1', pregunta, flags=re.I)
-    #     pregunta_sin_signo = texto_limpio.replace("?", "").replace("¿", "")
-    #     return pregunta_sin_signo
 
     def sacar_signos(self, pregunta):
         # Normaliza el texto para eliminar acentos
@@ -33,6 +29,25 @@ class manejoDataset:
         texto_limpio = re.sub(r'([aeiouyrs])\1{2,}', r'\1', texto_sin_signo, flags=re.I)
         
         return texto_limpio
+
+    def extraer_pregunta(self, texto):
+            # Convertimos todo a minúsculas para que sea más fácil detectar palabras interrogativas
+        texto_lower = texto.lower()
+        
+        # Lista de palabras típicas de pregunta
+        palabras_interrogativas = r"(qué|como|cómo|cuándo|cuando|dónde|donde|por qué|porque|quién|cual|cuáles)"
+        
+        # Buscamos oración que tenga palabra interrogativa
+        match = re.search(rf"({palabras_interrogativas}[^?.!]*)", texto_lower)
+        if match:
+            return match.group(1).strip()
+        
+        # Si no encontramos, buscamos la oración que tenga "que" (posible pregunta indirecta)
+        match = re.search(r"(que [^?.!]*)", texto_lower)
+        if match:
+            return match.group(1).strip()
+        
+        return None
         
     def buscar_en_dataset(self, pregunta, dataset):
         # Normaliza la pregunta (quita espacios y pasa a minúsculas)

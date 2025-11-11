@@ -21,11 +21,26 @@ class AnalizadorSentimientos:
             sentimiento = resultados[0]["label"]
 
             if sentimiento == "POS":
-                respuesta = self.manejoDataset.buscar_en_dataset(frase, self.datasetListo) or "😊 Me alegra escuchar eso."
+                pregunta = self.manejoDataset.extraer_pregunta(frase)
+                respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                if respuestaTemp is None:
+                    respuesta = "😊 Me alegra escuchar eso."
+                else :
+                    respuesta = "la respuesta es: " + respuestaTemp 
             elif sentimiento == "NEG":
-                respuesta = "😟 ¿Estás bien? Si necesitas ayuda te recomiendo hablar con un adulto o maestro."
+                pregunta = self.manejoDataset.extraer_pregunta(frase)
+                respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                if respuestaTemp is None:
+                    respuesta = "😟 Si necesitas ayuda te recomiendo hablar con un adulto o maestro."
+                else :
+                    respuesta = "tranqui yo te ayudo, la respuesta es: " + respuestaTemp 
             elif sentimiento == "NEU":
-                respuesta = self.manejoDataset.buscar_en_dataset(frase, self.datasetListo) or "¿Podrias repetir la pregunta? 🌭"
+                pregunta = self.manejoDataset.extraer_pregunta(frase)
+                respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                if respuestaTemp is None:
+                    respuesta = "¿Podrias repetir la pregunta? 🌭"
+                else :
+                    respuesta = "la respuesta es: " + respuestaTemp 
             else:
                 respuesta = "❓ No pude entender el mensaje."
 
