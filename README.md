@@ -45,11 +45,35 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 
 ### 🧠 Ejemplos de preguntas
 
-Pregunta	Respuesta esperada
+- Analizis de imagen
+Subir imagen cualquiera, puede ser una del siguiente drive: https://drive.google.com/drive/u/0/folders/1LUgEQFJMOe1SA4jpnc98yawUEHW2Yk-c .
+El bot deberia describir la imagen.
+
+imagen subida: "Alien.png"
+ejemplo de respuesta: "La imagen muestra un alienígena de color verde. El alienígena tiene la cabeza grande y redonda, con ojos grandes y redondos que parecen tener una forma..."
+
+- Analizis de audio
+Preguntas de ejemlo:
 ¿Qué colores forman el violeta?	El azul y el rojo.
 ¿Qué necesitan las plantas para vivir?	Las plantas necesitan sol, agua, aire y tierra para crecer.
-¿Cuántos lados tiene un triángulo?	Un triángulo tiene tres lados.
 ¿Qué es EduBot?	EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades.
+
+En caso de no encontrar la respuesta en el dataset, el bot le pedira a groq informacion. 
+
+- Analizis de Mensaje
+Preguntas de ejemplo:
+¿Cuántos lados tiene un triángulo?	Un triángulo tiene tres lados.
+¿Qué colores tiene la bandera argentina? La bandera argentina tiene los colores celeste y blanco, con un sol en el centro.
+¿Cuántas vocales tiene el abecedario? Tiene cinco vocales: A, E, I, O y U.
+
+El bot formatea el mensaje entrante quitandole signos de pregunta, acentos, dejando el texto en minsuculas para que corresponda correctamente con la informacion del dataset.
+
+- Analizis de sentimientos
+El bot analiza tus sentimientos dependiendo el tono del mensaje q mandes.
+Ejemplo:
+no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
+
+Estoy mal. 
 
 ### 🧠 Tecnologías utilizadas
 
