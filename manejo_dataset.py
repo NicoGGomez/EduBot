@@ -33,15 +33,6 @@ class manejoDataset:
         texto_limpio = re.sub(r'([aeiouyrs])\1{2,}', r'\1', texto_sin_signo, flags=re.I)
         
         return texto_limpio
-
-
-    def sumar(self, pregunta):
-        numeros = [int(n) for n in re.findall(r'\d+', pregunta)]
-        for n in numeros :
-            total += n
-
-        print(total)
-        return f"el resultado es {total}"
         
     def buscar_en_dataset(self, pregunta, dataset):
         # Normaliza la pregunta (quita espacios y pasa a minúsculas)
