@@ -19,6 +19,7 @@ class AnalizadorSentimientos:
                 return "⚠️ No se pudo analizar el sentimiento."
 
             sentimiento = resultados[0]["label"]
+            print(sentimiento)
 
             if sentimiento == "POS":
                 pregunta = self.manejoDataset.extraer_pregunta(frase)
