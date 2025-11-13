@@ -29,11 +29,21 @@ TELEGRAM_TOKEN="tu_token_de_telegram"
 GROQ_API_KEY="tu_api_key_de_groq"
 `**
 
-### 2️⃣ Ejecución del bot
+Creacion de variables
+
+Para crear el token de telgram dirigirse al enlace: https://web.telegram.org, crear un chat con botFather y enviar el comando /newBot, una vez creado tendras tu token
+
+Para crear la key de groq, es necesario ir a https://console.groq.com/keys
+
+### 2️⃣ Instalacion de dependecias para el correcto uso del bot
+
+para que funcione el bot, debe crearse un nuevo entorno y mover e instalar las dependecias listadas en el requiriments.txt
+
+### 3️⃣ Ejecución del bot
 
 Ejecutá el archivo principal desde la terminal con:
 
-### python main.py
+### python Main.py o python3 Main.py
 
 El bot se conectará automáticamente a Telegram y comenzará a procesar mensajes, imágenes y audios.
 
