@@ -31,13 +31,26 @@ GROQ_API_KEY="tu_api_key_de_groq"
 
 Creacion de variables
 
-Para crear el token de telgram dirigirse al enlace: https://web.telegram.org, crear un chat con botFather y enviar el comando /newBot, una vez creado tendras tu token
+Para crear el token de telgram dirigirse al enlace: https://web.telegram.org, crear un chat con botFather y enviar el comando "/newBot", una vez creado tendras tu token
 
 Para crear la key de groq, es necesario ir a https://console.groq.com/keys
 
 ### 2️⃣ Instalacion de dependecias para el correcto uso del bot
 
-para que funcione el bot, debe crearse un nuevo entorno y mover e instalar las dependecias listadas en el requiriments.txt
+- Para que funcione el bot, debe crearse un nuevo entorno utlizando:
+
+        python -m venv entorno-bot-sentimientos
+
+- mover el requiriments.txt dentro de la carpeta del entorno
+- luego instalarlas desde dentro de la carpeta utilizando:
+
+        pip install -r requirements.txt
+
+- Antes de ejecutar, salir del entorno
+
+Habran algunas librerias que deberan ser importadas desde la consola (ejemplo: dotenv, telebot, etc) utilizando:
+
+        pip install dotenv 
 
 ### 3️⃣ Ejecución del bot
 
@@ -59,8 +72,8 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 Subir imagen cualquiera, puede ser una del siguiente drive: https://drive.google.com/drive/u/0/folders/1LUgEQFJMOe1SA4jpnc98yawUEHW2Yk-c .
 El bot deberia describir la imagen.
 
-imagen subida: "Alien.png"
-ejemplo de respuesta: "La imagen muestra un alienígena de color verde. El alienígena tiene la cabeza grande y redonda, con ojos grandes y redondos que parecen tener una forma..."
+    imagen subida: "Alien.png"
+    ejemplo de respuesta: "La imagen muestra un alienígena de color verde. El alienígena tiene la cabeza grande y redonda, con ojos grandes y redondos que parecen tener una forma..."
 
 - Analizis de audio
 Preguntas de ejemlo:
@@ -68,7 +81,7 @@ Preguntas de ejemlo:
 ¿Qué necesitan las plantas para vivir?	Las plantas necesitan sol, agua, aire y tierra para crecer.
 ¿Qué es EduBot?	EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades.
 
-En caso de no encontrar la respuesta en el dataset, el bot le pedira a groq informacion. 
+    En caso de no encontrar la respuesta en el dataset, el bot le pedira a groq informacion. 
 
 - Analizis de Mensaje
 Preguntas de ejemplo:
@@ -76,14 +89,14 @@ Preguntas de ejemplo:
 ¿Qué colores tiene la bandera argentina? La bandera argentina tiene los colores celeste y blanco, con un sol en el centro.
 ¿Cuántas vocales tiene el abecedario? Tiene cinco vocales: A, E, I, O y U.
 
-El bot formatea el mensaje entrante quitandole signos de pregunta, acentos, dejando el texto en minsuculas para que corresponda correctamente con la informacion del dataset.
+    El bot formatea el mensaje entrante quitandole signos de pregunta, acentos, dejando el texto en minsuculas para que corresponda correctamente con la informacion del dataset.
 
 - Analizis de sentimientos
 El bot analiza tus sentimientos dependiendo el tono del mensaje q mandes.
 Ejemplo:
 no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
 
-Estoy mal. 
+    Estoy mal. 
 
 ### 🧠 Tecnologías utilizadas
 
@@ -103,5 +116,7 @@ El propósito de EduBot es acercar la inteligencia artificial al aprendizaje inf
 Desarrollado por: 
 
 **Nicolás Gómez - anelecarg@gmail.com**
+
 **Agustina Fennema - agusfennema@gmail.com**
+
 **Iñaki Boixados - ilboixa2@gmail.com**
