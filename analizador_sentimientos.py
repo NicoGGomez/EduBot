@@ -19,7 +19,6 @@ class AnalizadorSentimientos:
                 return "⚠️ No se pudo analizar el sentimiento."
 
             sentimiento = resultados[0]["label"]
-            print(sentimiento)
 
             if sentimiento == "POS":
                 pregunta = self.manejoDataset.extraer_pregunta(frase)
@@ -27,21 +26,29 @@ class AnalizadorSentimientos:
                 if respuestaTemp is None:
                     respuesta = "😊 Me alegra escuchar eso."
                 else :
-                    respuesta = "la respuesta es: " + respuestaTemp 
+                    respuesta = respuestaTemp 
             elif sentimiento == "NEG":
                 pregunta = self.manejoDataset.extraer_pregunta(frase)
-                respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                if pregunta is None:
+                    respuestaTemp = self.manejoDataset.buscar_en_dataset(frase, self.datasetListo)
+                else:
+                    respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+        
                 if respuestaTemp is None:
                     respuesta = "😟 Si necesitas ayuda te recomiendo hablar con un adulto o maestro."
                 else :
                     respuesta = "tranqui yo te ayudo, la respuesta es: " + respuestaTemp 
             elif sentimiento == "NEU":
                 pregunta = self.manejoDataset.extraer_pregunta(frase)
-                respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                if pregunta is None:
+                    respuestaTemp = self.manejoDataset.buscar_en_dataset(frase, self.datasetListo)
+                else:
+                    respuestaTemp = self.manejoDataset.buscar_en_dataset(pregunta, self.datasetListo)
+                    
                 if respuestaTemp is None:
-                    respuesta = "¿Podrias repetir la pregunta? 🌭"
+                    respuesta = "No tengo informacion sobre eso 😞🌭"
                 else :
-                    respuesta = "la respuesta es: " + respuestaTemp 
+                    respuesta = respuestaTemp 
             else:
                 respuesta = "❓ No pude entender el mensaje."
 

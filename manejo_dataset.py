@@ -31,18 +31,14 @@ class manejoDataset:
         return texto_limpio
 
     def extraer_pregunta(self, texto):
-            # Convertimos todo a minúsculas para que sea más fácil detectar palabras interrogativas
         texto_lower = texto.lower()
         
-        # Lista de palabras típicas de pregunta
         palabras_interrogativas = r"(qué|como|cómo|cuándo|cuando|dónde|donde|por qué|porque|quién|cual|cuáles)"
         
-        # Buscamos oración que tenga palabra interrogativa
         match = re.search(rf"({palabras_interrogativas}[^?.!]*)", texto_lower)
         if match:
             return match.group(1).strip()
-        
-        # Si no encontramos, buscamos la oración que tenga "que" (posible pregunta indirecta)
+
         match = re.search(r"(que [^?.!]*)", texto_lower)
         if match:
             return match.group(1).strip()

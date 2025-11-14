@@ -10,6 +10,7 @@ import json
 from analizador_audio import AnalizadorAudio
 from analizador_imagenes import AnalizadorImagen
 from analizador_sentimientos import AnalizadorSentimientos
+from manejo_dataset import manejoDataset
 
 load_dotenv()
 
@@ -23,6 +24,9 @@ cliente_groq = Groq(api_key=GROQ_API_KEY)
 GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 DATASET_PATH = 'dataset.json'
+DATASET_PATH_CONCRETAS = 'dataset_concreto.json'
+
+preguntaAnterior = ''
 
 #instanciar el objeto === crear el bot
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
@@ -95,8 +99,15 @@ Por favor, intenta nuevamente o contáctanos:
 
 @bot.message_handler(func=lambda message: True)
 def responder(message):
+    global preguntaAnterior
     pregunta = message.text
-    resultado = analizador_sentimiento.analizar_sentimiento(pregunta)
+    if pregunta == preguntaAnterior:
+        manDataset = manejoDataset(DATASET_PATH_CONCRETAS)
+        dataset = manDataset.cargar_dataset()
+        resultado = manDataset.buscar_en_dataset(pregunta, dataset)
+    else:
+        preguntaAnterior = pregunta
+        resultado = analizador_sentimiento.analizar_sentimiento(pregunta)
     bot.reply_to(message, resultado)
 if __name__=="__main__":
     print("Bot ejecutado!")
