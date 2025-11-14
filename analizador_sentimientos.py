@@ -7,8 +7,9 @@ class AnalizadorSentimientos:
     def __init__(self, DATASET_PATH):
         self.manejoDataset = manejoDataset(DATASET_PATH) 
         self.datasetListo = self.manejoDataset.cargar_dataset()
-        self.analizador_de_sentimiento = pipeline("sentiment-analysis",
-                                     model = "pysentimiento/robertuito-sentiment-analysis")
+        self.analizador_de_sentimiento = pipeline(
+            "sentiment-analysis",
+            model = "pysentimiento/robertuito-sentiment-analysis")
         print ("Modelo cargado con exito.....")
 
     def analizar_sentimiento(self, frase):
@@ -48,7 +49,7 @@ class AnalizadorSentimientos:
                 if respuestaTemp is None:
                     respuesta = "No tengo informacion sobre eso 😞🌭"
                 else :
-                    respuesta = respuestaTemp 
+                    respuesta = respuestaTemp or "No tengo información sobre eso 😞🌭"
             else:
                 respuesta = "❓ No pude entender el mensaje."
 

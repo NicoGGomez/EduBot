@@ -1,10 +1,10 @@
 from typing import Optional
-import base64
 from groq import Groq
-import json
 import telebot
+import base64
+import json
 
-from manejo_dataset import manejoDataset 
+from analizadores.manejo_dataset import manejoDataset 
 
 class AnalizadorImagen:
      
@@ -26,7 +26,6 @@ class AnalizadorImagen:
             print(f"Error al convertir imagen a base64: {e}")
             return None
 
-    # Función para describir imagen con Groq
     def describir_imagen_con_groq(self, imagen_base64):
         """Envía la imagen a Groq y obtiene la descripción"""
         try:

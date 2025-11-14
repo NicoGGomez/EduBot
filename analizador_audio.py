@@ -1,10 +1,10 @@
 from typing import Optional
 from groq import Groq
 import telebot
-import os
 import json
+import os
 
-from manejo_dataset import manejoDataset 
+from analizadores.manejo_dataset import manejoDataset 
 
 class AnalizadorAudio():
 
@@ -18,7 +18,7 @@ class AnalizadorAudio():
         try: 
             system_prompt = f"""Eres el asistente virtual de Edubot. Tu tarea es responder preguntas basándote en la siguiente información de la empresa.
 
-    Datos de la empresa:
+        Datos de la empresa:
     {json.dumps(self.datasetListo)}
     
     lista completa que aparece en el dataset para ver ejemplos de páginas."""
