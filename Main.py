@@ -68,19 +68,6 @@ def manejar_foto(mensaje):
     try:
         descripcion = analizar_img.procesarFoto(mensaje)
 
-        # bot.reply_to(mensaje, "📸 He recibido tu imagen. Analizándola... ⏳")
-
-        # foto = mensaje.photo[-1]
-        # info_archivo = bot.get_file(foto.file_id)
-        # archivo_descargado = bot.download_file(info_archivo.file_path)
-        # imagen_base64 = analizar_img.imagen_a_base64(archivo_descargado)
-
-        # if not imagen_base64:
-        #     bot.reply_to(mensaje, "❌ Error al procesar la imagen. Intenta de nuevo.")
-        #     return
-
-        # descripcion = analizar_img.describir_imagen_con_groq(imagen_base64)
-
         if descripcion:
             respuesta = f"🤖 *Descripción de la imagen:*\n\n{descripcion}"
             bot.reply_to(mensaje, respuesta, parse_mode='Markdown')
