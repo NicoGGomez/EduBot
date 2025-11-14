@@ -71,6 +71,8 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 
 ### 🧠 Ejemplos de preguntas
 
+---
+
 - Analisis de imagen
 
     Subir imagen cualquiera, puede ser una del siguiente drive: https://drive.google.com/drive/u/0/folders/1LUgEQFJMOe1SA4jpnc98yawUEHW2Yk-c .
@@ -128,6 +130,8 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 
 ### 🧠 Tecnologías utilizadas
 
+---
+
 - Python 3.10+
 - TeleBot (pyTelegramBotAPI)
 - Groq API
@@ -139,11 +143,15 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 
 ### 🚀 Objetivo Educativo
 
+---
+
 El propósito de EduBot es acercar la inteligencia artificial al aprendizaje infantil, promoviendo el pensamiento lógico y la curiosidad de los niños, con un lenguaje claro y adaptado a su nivel escolar.
 
 ---
 
 ### 👨‍💻 Autores 
+
+---
 
 Desarrollado por: 
 
