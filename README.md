@@ -66,37 +66,65 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
 
 /Ayuda → Explica cómo comenzar a usar EduBot.
 
+---
+
+
 ### 🧠 Ejemplos de preguntas
 
 - Analisis de imagen
-Subir imagen cualquiera, puede ser una del siguiente drive: https://drive.google.com/drive/u/0/folders/1LUgEQFJMOe1SA4jpnc98yawUEHW2Yk-c .
-El bot deberia describir la imagen.
+
+    Subir imagen cualquiera, puede ser una del siguiente drive: https://drive.google.com/drive/u/0/folders/1LUgEQFJMOe1SA4jpnc98yawUEHW2Yk-c .
+    El bot deberia describir la imagen.
 
     imagen subida: "Alien.png"
     ejemplo de respuesta: "La imagen muestra un alienígena de color verde. El alienígena tiene la cabeza grande y redonda, con ojos grandes y redondos que parecen tener una forma..."
 
 - Analisis de audio
-Preguntas de ejemlo:
-¿Qué colores forman el violeta?	El azul y el rojo.
-¿Qué necesitan las plantas para vivir?	Las plantas necesitan sol, agua, aire y tierra para crecer.
-¿Qué es EduBot?	EduBot es un asistente educativo creado para ayudar a niños de primaria a aprender de forma divertida e interactiva, haciendo preguntas, dando pistas y enseñando curiosidades.
+
+    Preguntas de ejemplo:
+
+    - ¿Qué colores forman el violeta?
+
+    - ¿Qué necesitan las plantas para vivir?	
+
+    - ¿Qué es EduBot?	
 
     En caso de no encontrar la respuesta en el dataset, el bot le pedira a groq informacion. 
 
 - Analisis de Mensaje
-Preguntas de ejemplo:
-¿Cuántos lados tiene un triángulo?	Un triángulo tiene tres lados.
-¿Qué colores tiene la bandera argentina? La bandera argentina tiene los colores celeste y blanco, con un sol en el centro.
-¿Cuántas vocales tiene el abecedario? Tiene cinco vocales: A, E, I, O y U.
 
-    El bot formatea el mensaje entrante quitandole signos de pregunta, acentos, dejando el texto en minsuculas para que corresponda correctamente con la informacion del dataset.
+    **El bot formatea el mensaje entrante quitandole signos de pregunta, acentos, dejando el texto en minsuculas para que corresponda correctamente con la informacion del dataset.**
+
+    **Este la primera vez que preguntes algo, te ayudara a intentar de descifrar la respuesta vos mismo**
+
+    **pregunta**: "¿Cuánto es 7 + 5?"
+    
+    **respuesta**: "Para sumar 7 más 5, puedes contar 7 dedos y luego 5 más, ¿cuántos tienes en total?"
+
+    **Si la persona vuelve a preguntar lo mismo, el bot contestara mas concretamente**
+
+    **pregunta**: "¿Cuánto es 7 + 5?"
+    
+    **respuesta**: "Es 12."
+
+    Mas preguntas de ejemplo:
+
+    - ¿Qué debe tener una oración para estar completa?
+
+    - ¿Qué necesitan las plantas para vivir?
+
+    - ¿Qué usamos para respirar?
+
 
 - Analisis de sentimientos
-El bot analiza tus sentimientos dependiendo el tono del mensaje q mandes.
-Ejemplo:
-no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
+    El bot analiza tus sentimientos dependiendo el tono del mensaje q mandes.
+    Ejemplo:
 
-    Estoy mal. 
+    no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
+
+    me siento mal porq no se cuanto es 7 + 5 **tranqui yo te ayudo, la respuesta es: Para sumar 7 más 5, puedes contar 7 dedos y luego 5 más, ¿cuántos tienes en total?**
+
+---
 
 ### 🧠 Tecnologías utilizadas
 
@@ -107,9 +135,13 @@ no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
 - dotenv
 - JSON
 
+---
+
 ### 🚀 Objetivo Educativo
 
 El propósito de EduBot es acercar la inteligencia artificial al aprendizaje infantil, promoviendo el pensamiento lógico y la curiosidad de los niños, con un lenguaje claro y adaptado a su nivel escolar.
+
+---
 
 ### 👨‍💻 Autores 
 

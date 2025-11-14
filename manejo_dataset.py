@@ -33,7 +33,7 @@ class manejoDataset:
     def extraer_pregunta(self, texto):
         texto_lower = texto.lower()
         
-        palabras_interrogativas = r"(qué|como|cómo|cuándo|cuando|dónde|donde|por qué|porque|quién|cual|cuáles)"
+        palabras_interrogativas = r"(qué|que|cuanto|como|cómo|cuándo|cuando|dónde|donde|por qué|porque|quién|cual|cuáles)"
         
         match = re.search(rf"({palabras_interrogativas}[^?.!]*)", texto_lower)
         if match:
