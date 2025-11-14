@@ -4,7 +4,7 @@ import telebot
 import json
 import os
 
-from analizadores.manejo_dataset import manejoDataset 
+from manejo_dataset import manejoDataset 
 
 class AnalizadorAudio():
 

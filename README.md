@@ -122,7 +122,7 @@ El bot se conectará automáticamente a Telegram y comenzará a procesar mensaje
     El bot analiza tus sentimientos dependiendo el tono del mensaje q mandes.
     Ejemplo:
 
-    no me saleeee. **😟 ¿Estás bien? Si querés puedo ayudarte con algo.**
+    no me saleeee. **😟 Si necesitas ayuda te recomiendo hablar con un adulto o maestro.**
 
     me siento mal porq no se cuanto es 7 + 5 **tranqui yo te ayudo, la respuesta es: Para sumar 7 más 5, puedes contar 7 dedos y luego 5 más, ¿cuántos tienes en total?**
 

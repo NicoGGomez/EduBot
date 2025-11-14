@@ -4,7 +4,7 @@ import telebot
 import base64
 import json
 
-from analizadores.manejo_dataset import manejoDataset 
+from manejo_dataset import manejoDataset 
 
 class AnalizadorImagen:
      
@@ -13,6 +13,22 @@ class AnalizadorImagen:
         self.bot = bot
         self.procesarDataset = manejoDataset(DATASET_PATH) 
         self.datasetListo = self.procesarDataset.cargar_dataset()
+
+    def procesarFoto(self, mensaje):
+        self.bot.reply_to(mensaje, "📸 He recibido tu imagen. Analizándola... ⏳")
+        foto = mensaje.photo[-1]
+        info_archivo = self.bot.get_file(foto.file_id)
+        archivo_descargado = self.bot.download_file(info_archivo.file_path)
+        imagen_base64 = self.imagen_a_base64(archivo_descargado)
+        
+        if not imagen_base64:
+            self.bot.reply_to(mensaje, "❌ Error al procesar la imagen. Intenta de nuevo.")
+            return
+        
+        descripcion = self.describir_imagen_con_groq(imagen_base64)
+
+        return descripcion
+
 
     def imagen_a_base64(self, ruta_o_bytes_imagen):
         """Convierte una imagen a base64 para enviarla a Groq"""
